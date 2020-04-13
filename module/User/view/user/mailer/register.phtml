@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            background: #bdbdbd;
+        }
+
+        .container {
+            width: 450px;
+            height: 100%;
+            background: #ffffff;
+            margin: 0 auto;
+            padding-top: 80px;
+            padding-left: 25px;
+            padding-right: 25px;
+            padding-bottom: 25px;
+            margin-bottom: 80px;
+        }
+
+        h1 {
+            text-align: center;
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 50px;
+            text-shadow: rgba(255, 255, 255, 0.2) 3px 2px 3px;
+        }
+
+        figure {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .btn-confirmar {
+            background-color: #44c767;
+            -moz-border-radius: 11px;
+            -webkit-border-radius: 11px;
+            border-radius: 11px;
+            border: 1px solid #18ab29;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 23px;
+            font-weight: bold;
+            padding: 16px 31px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #2f6627;
+
+            margin-top: 45px
+        }
+
+        .btn-confirmar:hover {
+            background-color: #5cbf2a;
+        }
+
+        .btn-confirmar:active {
+            position: relative;
+            top: 1px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        span {
+            text-align: center;
+            color: #b0b0b0;
+            font-size: 12px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+
+    <h1>ZF3 na prática</h1>
+    <br>
+
+    <p>Olá,</p>
+
+    <p>Para continuar com o cadastro basta confirmar seu email clicando no botão abaixo.</p>
+    <p>Ao clicar neste botão você será redirecionado novamente para o nosso site e finalizando o seu cadastro.</p>
+
+    <p class="text-center"><a href="<?php echo $this->data['host'].$this->url('user/default', [
+                'action' => 'confirmed-email',
+                'token' => $this->data['token']]); ?>" class="btn-confirmar">Confirma cadastro</a></p>
+</div>
+
+<br><br>
+
+<span><strong>Data:</strong> <?php echo date('d/m/Y')?></span>
+<span><strong>IP:</strong> <?php echo $this->data['ip']?></span>
+</body>
+
+</html>

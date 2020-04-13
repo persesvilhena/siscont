@@ -1,0 +1,123 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>Contas:</h1>
+
+
+    <table class="table table-bordered table-striped table-hover table-condensed">
+        <tr>
+            <th>#</th>
+            <th>Perses</th>
+            <th>Mamae</th>
+            <th>Pacoka</th>
+            <th>Maurao</th>
+            <th>Gordinho</th>
+        </tr>
+        <tr>
+            <td>Total Gasto</td>
+            <td><?= $this->tot_gasto[0]; ?></td>
+            <td><?= $this->tot_gasto[1]; ?></td>
+            <td><?= $this->tot_gasto[2]; ?></td>
+            <td><?= $this->tot_gasto[3]; ?></td>
+            <td><?= $this->tot_gasto[4]; ?></td>
+        </tr>
+        <tr>
+            <td>Total Pago</td>
+            <td><?= $this->tot_pago[0]; ?></td>
+            <td><?= $this->tot_pago[1]; ?></td>
+            <td><?= $this->tot_pago[2]; ?></td>
+            <td><?= $this->tot_pago[3]; ?></td>
+            <td><?= $this->tot_pago[4]; ?></td>
+        </tr>
+        <tr>
+            <td>Saldo Final</td>
+            <td><?= $this->tot_dif[0]; ?></td>
+            <td><?= $this->tot_dif[1]; ?></td>
+            <td><?= $this->tot_dif[2]; ?></td>
+            <td><?= $this->tot_dif[3]; ?></td>
+            <td><?= $this->tot_dif[4]; ?></td>
+        </tr>
+    </table>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <?php var_dump($this->meses); ?>
+
+    <!-- Default box -->
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Minhas contas</h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                        title="Collapse">
+                    <i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                    <i class="fa fa-times"></i></button>
+            </div>
+        </div>
+        <div class="box-body">
+            <?php
+            echo $this->flashMessenger()->render('error', ['alert alert-danger alert-dismissible']);
+            echo $this->flashMessenger()->render('success', ['alert alert-success alert-dismissible']);
+            ?>
+
+            <table class="table table-bordered table-striped table-hover table-condensed">
+                <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Titulo</th>
+                    <th>Prioridade</th>
+                    <th>Descricao</th>
+                    <th>Grupo</th>
+                    <th>Data</th>
+                    <th>Ação</th>
+                </tr>
+                <?php
+                /**
+                 * @var $ticket \Application\Model\Ticket
+                 */
+                ?>
+                <?php foreach ($this->paginator as $ticket): ?>
+                    <tr>
+                        <td><?= $this->escapeHtml($ticket->id); ?></td>
+                        <td><?= $this->escapeHtml(str_replace('.',',', $ticket->valor)); ?></td>
+                        <?php if ($ticket->status == \Cont\Model\Movimentacao::CRE): ?>
+                            <td><span class="badge bg-green"><?= \Cont\Model\Movimentacao::getStatus($ticket->status )?></span></td>
+                        <?php elseif ($ticket->status == \Cont\Model\Movimentacao::DEB): ?>
+                            <td><span class="badge bg-red"><?= \Cont\Model\Movimentacao::getStatus($ticket->status )?></span></td>
+                        <?php endif; ?>
+                        <td><?= $this->escapeHtml($ticket->descricao); ?></td>
+                        <td><?= \Cont\Model\Movimentacao::getGrupo($ticket->grupo )?></td>
+
+
+                        <td><?= $this->dateFormat(new \DateTime($ticket->data), IntlDateFormatter::MEDIUM); ?></td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="<?= $this->url('cont.lanc', ['controller' => 'Movimentacao', 'action' => 'edit', 'id' => $ticket->id]); ?>" class="btn btn-warning"><i class="fa fa-edit"></i> Editar</a>
+                                <a href="<?= $this->url('cont.lanc', ['controller' => 'Movimentacao', 'action' => 'delete', 'id' => $ticket->id]); ?>" class="btn btn-danger"><i class="fa fa-trash-o"></i> Excluir</a>
+                            </div>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+
+            </table>
+
+            <?= $this->paginationControl(
+            // The paginator object:
+                $this->paginator,
+                // The scrolling style:
+                'sliding',
+                // The partial to use to render the control:
+                'cont/movimentacao/paginator',
+                // The route to link to when a user clicks a control link:
+                ['route' => 'cont.dash']
+            ) ?>
+
+        </div>
+        <!-- /.box-body -->
+
+    </div>
+    <!-- /.box -->
+
+</section>
+<!-- /.content -->

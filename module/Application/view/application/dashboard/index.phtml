@@ -1,0 +1,84 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>Dashboard</h1>
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <!-- Default box -->
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Meus Tickets</h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                        title="Collapse">
+                    <i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                    <i class="fa fa-times"></i></button>
+            </div>
+        </div>
+        <div class="box-body">
+            <?php
+            echo $this->flashMessenger()->render('error', ['alert alert-danger alert-dismissible']);
+            echo $this->flashMessenger()->render('success', ['alert alert-success alert-dismissible']);
+            ?>
+
+            <table class="table table-bordered table-striped table-hover table-condensed">
+                <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Titulo</th>
+                    <th>Prioridade</th>
+                    <th>Data</th>
+                    <th>Ação</th>
+                </tr>
+                <?php
+                /**
+                 * @var $ticket \Application\Model\Ticket
+                 */
+                ?>
+                <?php foreach ($this->paginator as $ticket): ?>
+                    <tr>
+                        <td><?= $this->escapeHtml($ticket->id); ?></td>
+                        <td><?= $this->escapeHtml($ticket->name); ?></td>
+                        <?php if ($ticket->priority == \Application\Model\Ticket::LOW): ?>
+                            <td><span class="badge bg-blue"><?= \Application\Model\Ticket::getPriority($ticket->priority )?></span></td>
+                        <?php elseif ($ticket->priority == \Application\Model\Ticket::MEDIUM): ?>
+                            <td><span class="badge bg-yellow"><?= \Application\Model\Ticket::getPriority($ticket->priority )?></span></td>
+                        <?php else: ?>
+                            <td><span class="badge bg-red"><?= \Application\Model\Ticket::getPriority($ticket->priority )?></span></td>
+                        <?php endif; ?>
+
+
+                        <td><?= $this->dateFormat(new \DateTime($ticket->created_at), IntlDateFormatter::MEDIUM); ?></td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="<?= $this->url('ticket', ['controller' => 'Ticket', 'action' => 'edit', 'id' => $ticket->id]); ?>" class="btn btn-warning"><i class="fa fa-edit"></i> Editar</a>
+                                <a href="<?= $this->url('ticket', ['controller' => 'Ticket', 'action' => 'delete', 'id' => $ticket->id]); ?>" class="btn btn-danger"><i class="fa fa-trash-o"></i> Excluir</a>
+                            </div>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+
+            </table>
+
+            <?= $this->paginationControl(
+            // The paginator object:
+                $this->paginator,
+                // The scrolling style:
+                'sliding',
+                // The partial to use to render the control:
+                'Application/ticket/paginator',
+                // The route to link to when a user clicks a control link:
+                ['route' => 'dashboard']
+            ) ?>
+
+        </div>
+        <!-- /.box-body -->
+
+    </div>
+    <!-- /.box -->
+
+</section>
+<!-- /.content -->

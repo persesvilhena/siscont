@@ -1,0 +1,43 @@
+<?php
+echo $this->flashMessenger()->render('error', ['alert alert-danger alert-dismissible']);
+echo $this->flashMessenger()->render('success', ['alert alert-success alert-dismissible']);
+?>
+
+<?php echo $this->form()->openTag($this->form); ?>
+    <div class="box-body">
+        <div class="form-group<?php echo $this->formElementErrors($this->form->get('valor')) ? ' has-error' : ''; ?>">
+            <?php echo $this->formLabel($this->form->get('valor')); ?>
+            <?php echo $this->formText($this->form->get('valor')); ?>
+            <?php echo $this->formElementErrors($this->form->get('valor')); ?>
+        </div>
+
+        <div class="form-group<?php echo $this->formElementErrors($this->form->get('status')) ? ' has-error' : ''; ?>">
+            <?php echo $this->formLabel($this->form->get('status')); ?>
+            <?php echo $this->formSelect($this->form->get('status')); ?>
+            <?php echo $this->formElementErrors($this->form->get('status')); ?>
+        </div>
+
+        <div class="form-group<?php echo $this->formElementErrors($this->form->get('grupo')) ? ' has-error' : ''; ?>">
+            <?php echo $this->formLabel($this->form->get('grupo')); ?>
+            <?php echo $this->formSelect($this->form->get('grupo')); ?>
+            <?php echo $this->formElementErrors($this->form->get('grupo')); ?>
+        </div>
+
+        <div class="form-group<?php echo $this->formElementErrors($this->form->get('data')) ? ' has-error' : ''; ?>">
+            <?php echo $this->formLabel($this->form->get('data')); ?>
+            <?php echo $this->formText($this->form->get('data')); ?>
+            <?php echo $this->formElementErrors($this->form->get('data')); ?>
+        </div>
+
+        <div class="form-group<?php echo $this->formElementErrors($this->form->get('descricao')) ? ' has-error' : ''; ?>">
+            <?php echo $this->formLabel($this->form->get('descricao')); ?>
+            <?php echo $this->formText($this->form->get('descricao')); ?>
+            <?php echo $this->formElementErrors($this->form->get('descricao')); ?>
+        </div>
+
+        <?php echo $this->formHidden($this->form->get('csrf'));  ?>
+        <div class="box-footer">
+            <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o"></i> Salvar Ticket</button>
+        </div>
+    </div>
+<?php echo $this->form()->closeTag(); ?>

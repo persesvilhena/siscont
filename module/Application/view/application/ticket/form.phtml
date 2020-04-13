@@ -1,0 +1,37 @@
+<?php
+echo $this->flashMessenger()->render('error', ['alert alert-danger alert-dismissible']);
+echo $this->flashMessenger()->render('success', ['alert alert-success alert-dismissible']);
+?>
+
+<?php echo $this->form()->openTag($this->form); ?>
+    <div class="box-body">
+        <div class="form-group<?php echo $this->formElementErrors($this->form->get('name')) ? ' has-error' : ''; ?>">
+            <?php echo $this->formLabel($this->form->get('name')); ?>
+            <?php echo $this->formText($this->form->get('name')); ?>
+            <?php echo $this->formElementErrors($this->form->get('name')); ?>
+        </div>
+
+        <div class="form-group<?php echo $this->formElementErrors($this->form->get('description')) ? ' has-error' : ''; ?>">
+            <?php echo $this->formLabel($this->form->get('description')); ?>
+            <?php echo $this->formTextArea($this->form->get('description')); ?>
+            <?php echo $this->formElementErrors($this->form->get('description')); ?>
+        </div>
+
+        <div class="form-group<?php echo $this->formElementErrors($this->form->get('priority')) ? ' has-error' : ''; ?>">
+            <?php echo $this->formLabel($this->form->get('priority')); ?>
+            <?php echo $this->formSelect($this->form->get('priority')); ?>
+            <?php echo $this->formElementErrors($this->form->get('priority')); ?>
+        </div>
+
+        <div class="form-group<?php echo $this->formElementErrors($this->form->get('attachment')) ? ' has-error' : ''; ?>">
+            <?php echo $this->formLabel($this->form->get('attachment')); ?>
+            <?php echo $this->formFile($this->form->get('attachment')); ?>
+            <p class="help-block">Arquivos de referencia no formato PNG ou JPG</p>
+            <?php echo $this->formElementErrors($this->form->get('attachment')); ?>
+        </div>
+        <?php echo $this->formHidden($this->form->get('csrf'));  ?>
+        <div class="box-footer">
+            <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o"></i> Salvar Ticket</button>
+        </div>
+    </div>
+<?php echo $this->form()->closeTag(); ?>

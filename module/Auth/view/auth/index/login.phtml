@@ -1,0 +1,38 @@
+<div class="login-logo">
+    <p><b>ZF3</b> na prática</p>
+</div>
+<!-- /.login-logo -->
+<div class="login-box-body">
+    <p class="login-box-msg">Faça login para iniciar sua sessão</p>
+
+    <?php
+    echo $this->flashMessenger()->render('error', ['alert alert-danger alert-dismissible']);
+    echo $this->flashMessenger()->render('info', ['alert alert-info alert-dismissible']);
+    ?>
+
+    <?php echo $this->form()->openTag($this->form); ?>
+    <div class="form-group<?php echo $this->formElementErrors($this->form->get('email')) ? ' has-error' : ''; ?> has-feedback">
+        <?php echo $this->formEmail($this->form->get('email')); ?>
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <?php echo $this->formElementErrors($this->form->get('email')); ?>
+    </div>
+
+    <div class="form-group<?php echo $this->formElementErrors($this->form->get('password')) ? ' has-error' : ''; ?> has-feedback">
+        <?php echo $this->formPassword($this->form->get('password')); ?>
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        <?php echo $this->formElementErrors($this->form->get('password')); ?>
+    </div>
+    <?php echo $this->formHidden($this->form->get('csrf'));  ?>
+    <div class="row">
+        <div class="pull-right col-xs-4">
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Logar</button>
+        </div>
+    </div>
+    <?php echo $this->form()->closeTag(); ?>
+
+
+
+    <a href="<?= $this->url('user/default', ['controller' => 'User', 'action' => 'recovered-password']); ?>">Esqueci a minha senha</a><br>
+    <a href="<?= $this->url('user/default', ['controller' => 'User', 'action' => 'register']); ?>" class="text-center">Criar registro</a>
+
+</div>

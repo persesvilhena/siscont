@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <?= $this->headTitle('ZF3 na prática')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+    <?= $this->headMeta()
+        ->appendName('viewport', 'width=device-width, initial-scale=1, user-scalable=no')
+        ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+    ?>
+
+    <!-- Le styles -->
+    <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
+        ->prependStylesheet($this->basePath('css/style.css'))
+        ->prependStylesheet($this->basePath('plugins/iCheck/square/blue.css'))
+        ->prependStylesheet($this->basePath('dist/css/AdminLTE.min.css'))
+        ->prependStylesheet($this->basePath('css/ionicons.min.css'))
+        ->prependStylesheet($this->basePath('css/font-awesome.min.css'))
+        ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
+    ?>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+    <?= $this->content ?>
+</div>
+
+<!-- Scripts -->
+<?= $this->headScript()
+    ->prependFile($this->basePath('plugins/iCheck/icheck.min.js'))
+    ->prependFile($this->basePath('js/bootstrap.min.js'))
+    ->prependFile($this->basePath('js/jquery.min.js'))
+?>
+
+<?= $this->inlineScript() ?>
+</body>
+</html>

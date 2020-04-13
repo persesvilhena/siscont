@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/module/Application/src" isTestSource="false" packagePrefix="Application\" />
+      <sourceFolder url="file://$MODULE_DIR$/module/Auth/src" isTestSource="false" packagePrefix="Auth\" />
+      <sourceFolder url="file://$MODULE_DIR$/module/Application/test" isTestSource="true" packagePrefix="ApplicationTest\" />
+      <sourceFolder url="file://$MODULE_DIR$/module/Core/src" isTestSource="false" packagePrefix="Core\" />
+      <sourceFolder url="file://$MODULE_DIR$/module/User/src" isTestSource="false" packagePrefix="User\" />
+      <sourceFolder url="file://$MODULE_DIR$/module/Cont/src" isTestSource="false" packagePrefix="Cont\" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/container-interop/container-interop" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/paragonie/random_compat" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/simple-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/true/punycode" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-authentication" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-code" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-component-installer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-config" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-console" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-crypt" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-db" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-di" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-escaper" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-eventmanager" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-filter" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-form" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-http" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-hydrator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-i18n" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-i18n-resources" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-inputfilter" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-json" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-loader" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-mail" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-math" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-mime" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-modulemanager" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-mvc" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-mvc-console" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-mvc-i18n" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-mvc-plugin-fileprg" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-mvc-plugin-flashmessenger" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-mvc-plugin-identity" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-mvc-plugin-prg" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-paginator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-router" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-servicemanager" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-servicemanager-di" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-session" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-stdlib" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-text" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-uri" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-validator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-view" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zfcampus/zf-development-mode" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
